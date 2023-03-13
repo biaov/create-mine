@@ -1,0 +1,65 @@
+{
+  "name": "create-mine",
+  "private": false,
+  "version": "0.0.5",
+  "main": "index.js",
+  "bin": {
+    "create-mine": "bin/create-mine.js",
+    "me": "bin/create-mine.js"
+  },
+  "author": {
+    "name": "biaov",
+    "email": "biaov@qq.com",
+    "url": "https://biaov.cn"
+  },
+  "description": "一个用于初始化项目的脚手架 👍",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "node scripts/dev",
+    "build": "node scripts/build",
+    "prettier": "prettier --write '**/*.{js,ts,md,json}'",
+    "ncu": "ncu --configFileName .ncurc.json && npm i",
+    "pre-publish": "start cmd /k cd ./dist"
+  },
+  "engines": {
+    "node": ">=12"
+  },
+  "keywords": [
+    "Cli",
+    "Init",
+    "Vite",
+    "TypeScript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/biaov/create-mine.git"
+  },
+  "homepage": "https://github.com/biaov/create-mine.git",
+  "bugs": {
+    "url": "https://github.com/biaov/create-mine/issues"
+  },
+  "license": "ISC",
+  "contributors": [
+    {
+      "name": "biaov",
+      "email": "biaov@qq.com"
+    }
+  ],
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^10.0.0",
+    "download-git-repo": "^3.0.2",
+    "handlebars": "^4.7.7",
+    "inquirer": "^8.2.5",
+    "log-symbols": "^4.1.0",
+    "ora": "^5.4.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.14.3",
+    "chokidar": "^3.5.3",
+    "cross-env": "^7.0.3",
+    "prettier": "^2.8.4",
+    "typescript": "^4.9.5",
+    "vite": "^4.1.4"
+  }
+}
