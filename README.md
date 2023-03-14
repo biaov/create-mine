@@ -31,6 +31,23 @@ npm create mine
 - `pnpm`
 - `yarn`
 
+## 项目解析
+
+- [项目模板地址](https://gitee.com/biaovorg/project-template.git)
+
+### 依赖特性
+
+- `chalk`: 字体颜色
+- `commander`: 命令
+- `download-git-repo`: 下载模板工具
+- `inquirer`: 用户交互
+- `log-symbols`: 图标
+- `ora`: 动画效果
+- `chokidar`: 监听文件更改
+- `vite`: 项目构建工具
+- `typescript`: 编程语言
+- `prettier`: 格式化工具
+
 ## 贡献者们
 
 [![贡献者](https://contrib.rocks/image?repo=biaov/create-mine)](https://github.com/biaov/create-mine/graphs/contributors)

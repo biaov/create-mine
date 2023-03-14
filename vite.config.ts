@@ -16,7 +16,7 @@ const config: UserConfig = {
       formats: ['cjs']
     },
     rollupOptions: {
-      external: ['path', 'child_process', 'fs', 'chalk', 'commander', 'download-git-repo', 'execa', 'handlebars', 'inquirer', 'log-symbols', 'ora'],
+      external: ['path', 'child_process', 'fs', 'chalk', 'commander', 'download-git-repo', 'execa', 'inquirer', 'log-symbols', 'ora'],
       output: {
         entryFileNames: '[name].js'
       }
