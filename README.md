@@ -9,7 +9,9 @@
   <a href="https://github.com/biaov/create-mine/blob/master/LICENSE"><img src="https://img.shields.io/github/license/biaov/create-mine.svg?logo=Unlicense" /></a>
 </h2>
 
-## 初始化项目
+## 使用
+
+- 初始化项目
 
 ```Basic
 npm create mine
