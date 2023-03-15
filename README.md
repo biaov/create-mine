@@ -37,6 +37,10 @@ npm create mine
 
 - [项目模板地址](https://gitee.com/biaovorg/project-template.git)
 
+### 技术栈
+
+- `Vite` + `TypeScript` + `Node`
+
 ### 依赖特性
 
 - `chalk`: 字体颜色
