@@ -9,7 +9,8 @@ export const templateUrls = {
   vue: defaultTemplateUrl,
   react: defaultTemplateUrl,
   'uni-app': defaultTemplateUrl,
-  electron: defaultTemplateUrl
+  electron: defaultTemplateUrl,
+  node: defaultTemplateUrl
 }
 
 // 工具对应命令

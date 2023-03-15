@@ -25,6 +25,7 @@ npm create mine
 - `react`
 - `uni-app`
 - `electron`
+- `node`
 
 ### 安装工具预设
 
