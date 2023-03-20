@@ -1,7 +1,7 @@
 {
   "name": "create-mine",
   "private": false,
-  "version": "0.0.6",
+  "version": "1.0.0-beta.0",
   "main": "index.js",
   "bin": {
     "create-mine": "bin/create-mine.js",
@@ -22,7 +22,7 @@
     "pre-publish": "start cmd /k cd ./dist"
   },
   "engines": {
-    "node": ">=12"
+    "node": ">=16"
   },
   "keywords": [
     "Cli",
