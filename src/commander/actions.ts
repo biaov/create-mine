@@ -152,7 +152,7 @@ export const DownLibrary = ({ installTool, projectName, template }: PresetInfo) 
       if (existsSync(fileName)) {
         const content = JSON.parse(readFileSync(fileName).toString()) // 读取需要修改的文件
         content.name = projectName
-        writeFileSync(fileName, JSON.stringify(content)) // 重新写入文件
+        writeFileSync(fileName, JSON.stringify(content, null, 2)) // 重新写入文件
       }
       spinner.succeed('模板下载成功') // 下载成功
       info()
