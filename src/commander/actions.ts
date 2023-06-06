@@ -169,6 +169,7 @@ export const DownLibrary = ({ installTool, projectName, template }: PresetInfo) 
       info(`${yellow('$')}  ${cyanBright(`cd ${projectName}`)}    进入项目目录`)
       info(`${yellow('$')}  ${cyanBright(start)}    运行项目`)
       info()
+      process.exit(0)
     }
   })
 }
