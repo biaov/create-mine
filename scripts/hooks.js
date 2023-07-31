@@ -1,15 +1,16 @@
-const { writeFileSync, copyFileSync, existsSync, readdirSync, mkdirSync } = require('fs')
-const { join } = require('path')
-const package = require('../package.json')
-const { createServer, build, createLogger } = require('vite')
-const { resetPath } = require('./path')
-
+import { writeFileSync, copyFileSync, existsSync, readdirSync, mkdirSync, readFileSync } from 'fs'
+import { join } from 'path'
+import { createServer, build, createLogger } from 'vite'
+import { resetPath } from './path.js'
+// import pkg from '../package.json'
+const pkg = JSON.parse(readFileSync(resetPath('@/package.json')))
 const sharedConfig = { logLevel: 'info' }
+const packageJson = pkg
 
 /**
  * vite 服务
  */
-exports.createViteBuild = () =>
+export const createViteBuild = () =>
   build({
     ...sharedConfig,
     configFile: resetPath('@/vite.config.ts'),
@@ -19,7 +20,7 @@ exports.createViteBuild = () =>
 /**
  * vite 打包
  */
-exports.createViteServer = () =>
+export const createViteServer = () =>
   createServer({
     ...sharedConfig,
     configFile: resetPath('@/vite.config.ts')
@@ -28,18 +29,18 @@ exports.createViteServer = () =>
 /**
  * 重写 package.json
  */
-exports.rewritePackage = () => {
-  package.devDependencies = package.scripts = {}
+export const rewritePackage = () => {
+  packageJson.devDependencies = packageJson.scripts = {}
   /**
    * 写入最新的
    */
-  writeFileSync(resetPath('@/dist/package.json'), JSON.stringify(package, null, 2))
+  writeFileSync(resetPath('@/dist/package.json'), JSON.stringify(packageJson, null, 2))
 }
 
 /**
  * 复制资源
  */
-exports.copyAssets = () => {
+export const copyAssets = () => {
   /**
    * 根目录需要复制文件夹
    */
@@ -78,13 +79,13 @@ const logger = createLogger('warn', {
   prefix: '[ 日志 ]'
 })
 
-exports.log = (error, stdout) => {
+export const log = (error, stdout) => {
   if (!(error && error.toString().trim())) return
   logger.warn(error.toString(), { timestamp: true })
   stdout && logger.warn(stdout, { timestamp: true })
 }
 
-exports.debounce = (fn, time = 300) => {
+export const debounce = (fn, time = 300) => {
   /**
    * 定时器
    */

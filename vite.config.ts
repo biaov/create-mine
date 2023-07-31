@@ -9,14 +9,14 @@ const config: UserConfig = {
     }
   },
   build: {
-    target: 'esnext',
+    target: 'node16',
     outDir: resolve(__dirname, './dist'),
     lib: {
       entry: resolve(__dirname, './src/index.ts'),
-      formats: ['cjs']
+      formats: ['es']
     },
     rollupOptions: {
-      external: ['path', 'child_process', 'fs', 'chalk', 'commander', 'download-git-repo', 'inquirer', 'log-symbols', 'ora'],
+      external: ['url', 'path', 'child_process', 'fs', 'chalk', 'commander', 'download-git-repo', 'inquirer', 'log-symbols', 'ora'],
       output: {
         entryFileNames: '[name].js'
       }
