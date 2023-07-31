@@ -1,10 +1,11 @@
 /**
- * 此文件不对 config 目录外暴露
+ * 默认的模板地址，也可以配置其它模板地址
  */
-// 默认的模板地址，也可以配置其它模板地址
 const defaultTemplateUrl = 'https://gitee.com/biaovorg/project-template.git'
 
-// 模板下载地址
+/**
+ * 模板下载地址
+ */
 export const templateUrls = {
   vue: defaultTemplateUrl,
   react: defaultTemplateUrl,
@@ -13,7 +14,9 @@ export const templateUrls = {
   node: defaultTemplateUrl
 }
 
-// 工具对应命令
+/**
+ * 工具对应命令
+ */
 export const toolCommands = {
   npm: {
     install: 'npm i',

@@ -6,44 +6,64 @@ const { resetPath } = require('./path')
 
 const sharedConfig = { logLevel: 'info' }
 
-// vite 服务
-exports.createViteBuild = () => {
-  return build({
+/**
+ * vite 服务
+ */
+exports.createViteBuild = () =>
+  build({
     ...sharedConfig,
     configFile: resetPath('@/vite.config.ts'),
     mode: 'production'
   })
-}
 
-// vite 打包
-exports.createViteServer = () => {
-  console.log({
+/**
+ * vite 打包
+ */
+exports.createViteServer = () =>
+  createServer({
     ...sharedConfig,
     configFile: resetPath('@/vite.config.ts')
   })
-  return createServer({
-    ...sharedConfig,
-    configFile: resetPath('@/vite.config.ts')
-  })
-}
 
-// 重写 package.json
+/**
+ * 重写 package.json
+ */
 exports.rewritePackage = () => {
   package.devDependencies = package.scripts = {}
-  writeFileSync(resetPath('@/dist/package.json'), JSON.stringify(package, null, 2)) // 写入最新的
+  /**
+   * 写入最新的
+   */
+  writeFileSync(resetPath('@/dist/package.json'), JSON.stringify(package, null, 2))
 }
 
-// 复制资源
+/**
+ * 复制资源
+ */
 exports.copyAssets = () => {
-  const needDirs = ['bin'] // 根目录需要复制文件夹
-  const filePaths = ['README.md', 'LICENSE'] // 根目录需要复制的文件
-  const inputDir = resetPath('@') // 根目录
-  const outputDir = resetPath('@/dist') // 输出目录
+  /**
+   * 根目录需要复制文件夹
+   */
+  const needDirs = ['bin']
+  /**
+   * 根目录需要复制的文件
+   */
+  const filePaths = ['README.md', 'LICENSE']
+  /**
+   * 根目录
+   */
+  const inputDir = resetPath('@')
+  /**
+   * 输出目录
+   */
+  const outputDir = resetPath('@/dist')
 
   !existsSync(outputDir) && mkdirSync(outputDir)
   needDirs.forEach(dir => {
     const dirPath = resetPath(`@/${dir}`)
-    mkdirSync(join(outputDir, dir)) // 创建目录
+    /**
+     * 创建目录
+     */
+    mkdirSync(join(outputDir, dir))
     readdirSync(dirPath).forEach(file => {
       filePaths.push(`${dir}/${file}`)
     })
@@ -65,10 +85,16 @@ exports.log = (error, stdout) => {
 }
 
 exports.debounce = (fn, time = 300) => {
-  let timer // 定时器
+  /**
+   * 定时器
+   */
+  let timer
 
   return e => {
-    if (timer !== undefined) clearTimeout(timer) // 清理之前的操作
+    /**
+     * 清理之前的操作
+     */
+    timer !== undefined && clearTimeout(timer)
     timer = setTimeout(() => {
       fn(e)
     }, time)
