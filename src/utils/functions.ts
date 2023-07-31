@@ -1,8 +1,10 @@
 import { writeFile, readFileSync } from 'fs'
-import { resolve } from 'path'
+import { resolve, dirname } from 'path'
 import chalk from 'chalk'
+import { fileURLToPath } from 'url'
 import { PresetInfo } from './types'
 
+export const __dirname = dirname(fileURLToPath(import.meta.url))
 /**
  * 预设数据路径
  */

@@ -1,4 +1,4 @@
 {
   "upgrade": true,
-  "reject": ["inquirer", "chalk", "log-symbols", "ora"]
+  "reject": []
 }

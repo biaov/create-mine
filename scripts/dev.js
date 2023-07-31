@@ -1,7 +1,7 @@
-const chokidar = require('chokidar')
-const { exec } = require('child_process')
-const { resetPath } = require('./path')
-const { log, debounce } = require('./hooks')
+import chokidar from 'chokidar'
+import { exec } from 'child_process'
+import { resetPath } from './path.js'
+import { log, debounce } from './hooks.js'
 
 const watcher = chokidar.watch(resetPath('@/src'), {
   ignored: ['**/node_modules/**', '**/.git/**', '**/.vscode/**', '**/scripts/**', '**/dist/**'],
@@ -13,6 +13,8 @@ const watcher = chokidar.watch(resetPath('@/src'), {
 watcher.on(
   'all',
   debounce(() => {
-    exec('npm run build', log)
+    exec('npm run build', (error, studot) => {
+      log(error, studot)
+    })
   }, 2000)
 )

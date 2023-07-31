@@ -1,4 +1,4 @@
-const { createViteBuild, rewritePackage, copyAssets } = require('./hooks')
+import { createViteBuild, rewritePackage, copyAssets } from './hooks.js'
 
 !(async () => {
   try {
@@ -6,6 +6,7 @@ const { createViteBuild, rewritePackage, copyAssets } = require('./hooks')
     await rewritePackage()
     await copyAssets()
   } catch (e) {
+    console.log(e)
     process.exit(1)
   }
 })()
