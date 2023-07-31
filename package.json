@@ -1,8 +1,9 @@
 {
   "name": "create-mine",
   "private": false,
-  "version": "1.1.0",
+  "version": "1.1.0-beta.1",
   "exports": "./index.js",
+  "main": "./index.js",
   "type": "module",
   "bin": {
     "create-mine": "bin/create-mine.js",

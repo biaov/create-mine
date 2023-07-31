@@ -4,7 +4,7 @@ import chalk from 'chalk' // 添加字体颜色
 import ora from 'ora' // 显示动画效果
 import download from 'download-git-repo' // 用于下载项目模板
 import { existsSync, readFileSync, writeFileSync } from 'fs' // 读写文件
-import { execSync } from 'child_process'
+import { exec } from 'child_process'
 import log from '@/utils/log' // 日志
 import { templateUrls, templateNames, installTools, toolCommands } from '@/config' // 全局变量
 import { SavePresetInfo, GetPresetInfo, FormatePreset } from '@/utils/functions' // 全局方法
@@ -179,7 +179,7 @@ export const DownLibrary = ({ installTool, projectName, template }: PresetInfo) 
   info(blueBright(`create-mine v${version}`))
   info()
   info(`${yellow('>>')} 在此目录下创建项目：${yellow(processCwd)}`)
-  const spinner = ora({ text: '正在下载模板中...', color: 'yellow' })
+  const spinner = ora({ text: '正在下载模板中...', color: 'yellow', spinner: 'dots', indent: 0, interval: 100 })
   spinner.start()
 
   download(`direct:${templateUrls[template]}#${template}`, processCwd, { clone: true }, async (err: Error): Promise<void> => {
@@ -213,17 +213,20 @@ export const DownLibrary = ({ installTool, projectName, template }: PresetInfo) 
       info()
       spinner.start(`>> 正在安装依赖插件，可能要等一会...`)
       const { install, start } = toolCommands[installTool]
-      execSync(install, {
-        cwd: processCwd
+      exec(install, { cwd: processCwd }, err => {
+        if (err) {
+          error(err)
+          process.exit(1)
+        }
+        spinner.succeed('依赖插件安装成功')
+        info()
+        success(iconSuccess + ' 项目初始化完成')
+        info()
+        info(`${yellow('$')}  ${cyanBright(`cd ${projectName}`)}    进入项目目录`)
+        info(`${yellow('$')}  ${cyanBright(start)}    运行项目`)
+        info()
+        process.exit(0)
       })
-      spinner.succeed('依赖插件安装成功')
-      info()
-      success(iconSuccess + ' 项目初始化完成')
-      info()
-      info(`${yellow('$')}  ${cyanBright(`cd ${projectName}`)}    进入项目目录`)
-      info(`${yellow('$')}  ${cyanBright(start)}    运行项目`)
-      info()
-      process.exit(0)
     }
   })
 }
