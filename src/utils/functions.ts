@@ -3,7 +3,11 @@ import { resolve } from 'path'
 import chalk from 'chalk'
 import { PresetInfo } from './types'
 
-const presetPath = resolve(__dirname, './presetData.json') // 预设数据路径
+/**
+ * 预设数据路径
+ */
+const presetPath = resolve(__dirname, './presetData.json')
+
 /**
  * 保存本地预设信息
  * @param { string } name - 对象名称
@@ -11,7 +15,10 @@ const presetPath = resolve(__dirname, './presetData.json') // 预设数据路径
  * @returns { void }
  */
 export const SavePresetInfo = (name: string, data: PresetInfo) => {
-  const saveData = GetPresetInfo() // 保存对象键值对
+  /**
+   * 保存对象键值对
+   */
+  const saveData = GetPresetInfo()
   saveData[name] = data
   writeFile(presetPath, JSON.stringify(saveData), err => {
     err && console.log('保存预设失败')

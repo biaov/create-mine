@@ -22,8 +22,14 @@ const [firstTemplate] = templateNames
  * @returns { void }
  */
 export const Create = async (name = 'project-name') => {
-  const presetInfo = GetPresetInfo() // 获取预设信息
-  const historyList = FormatePreset(presetInfo) // 格式化预设信息
+  /**
+   * 获取预设信息
+   */
+  const presetInfo = GetPresetInfo()
+  /**
+   * 格式化预设信息
+   */
+  const historyList = FormatePreset(presetInfo)
   const { projectName, preset }: Record<string, any> = await prompt([
     {
       type: 'input',
@@ -33,7 +39,10 @@ export const Create = async (name = 'project-name') => {
       validate(input: string): boolean {
         // 是否存在名称
         if (input || name) {
-          const fileName = `${process.cwd()}\\${input || name}` // 文件名称路径
+          /**
+           * 文件名称路径
+           */
+          const fileName = `${process.cwd()}\\${input || name}`
           if (existsSync(fileName)) {
             warning('项目名称已存在')
             return false
@@ -53,9 +62,13 @@ export const Create = async (name = 'project-name') => {
       choices: [...historyList, `默认预设（${yellow('vue')}, ${yellow('npm')}）推荐`, '自义定预设']
     }
   ])
-  // 是否自定义预设
+  /**
+   * 是否自定义预设
+   */
   if (preset === '自义定预设') {
-    // 选择模板
+    /**
+     * 选择模板
+     */
     const templateRes = await prompt([
       {
         type: 'list',
@@ -66,7 +79,9 @@ export const Create = async (name = 'project-name') => {
       }
     ])
     const { template } = templateRes as Template
-    // 选择安装工具
+    /**
+     * 选择安装工具
+     */
     const { installTool } = await prompt([
       {
         type: 'list',
@@ -77,7 +92,9 @@ export const Create = async (name = 'project-name') => {
       }
     ])
 
-    // 保存预设？
+    /**
+     * 保存预设？
+     */
     const { isSave } = await prompt([
       {
         type: 'confirm',
@@ -85,16 +102,22 @@ export const Create = async (name = 'project-name') => {
         message: '是否要保存你的预设？'
       }
     ])
-    // 是否保存预设
+    /**
+     * 是否保存预设
+     */
     if (isSave) {
-      // 设置预设名称
+      /**
+       * 设置预设名称
+       */
       const { presetName } = await prompt([
         {
           type: 'input',
           name: 'presetName',
           message: '自定义预设叫什么名称？',
           validate(input: string): boolean {
-            // 是否存在名称
+            /**
+             * 是否存在名称
+             */
             if (input) {
               return true
             } else {
@@ -104,14 +127,26 @@ export const Create = async (name = 'project-name') => {
           }
         }
       ])
-      SavePresetInfo(presetName, { installTool, template }) // 保存信息
+      /**
+       * 保存信息
+       */
+      SavePresetInfo(presetName, { installTool, template })
     }
-    DownLibrary({ installTool, projectName, template }) // 默认预设
+    /**
+     * 默认预设
+     */
+    DownLibrary({ installTool, projectName, template })
   } else if (preset.includes('默认预设')) {
-    DownLibrary({ installTool: firstInstallTool, projectName, template: firstTemplate }) // 默认预设
+    /**
+     * 默认预设
+     */
+    DownLibrary({ installTool: firstInstallTool, projectName, template: firstTemplate })
   } else {
     const curPresetInfo = presetInfo[preset.match(/.+(?=\（)/)]
-    DownLibrary({ ...curPresetInfo, projectName }) // 下载模板
+    /**
+     * 下载模板
+     */
+    DownLibrary({ ...curPresetInfo, projectName })
   }
 }
 
@@ -122,8 +157,14 @@ export const Create = async (name = 'project-name') => {
  * @returns { void }
  */
 export const Arguments = (cmd: any, env: any) => {
-  error(`\`me ${cmd}${env ? ` ${env}` : ''}\` 命令不存在`) // 输出错误
-  program.help() // 显示全部命令
+  /**
+   * 输出错误
+   */
+  error(`\`me ${cmd}${env ? ` ${env}` : ''}\` 命令不存在`)
+  /**
+   * 显示全部命令
+   */
+  program.help()
 }
 
 /**
@@ -142,26 +183,42 @@ export const DownLibrary = ({ installTool, projectName, template }: PresetInfo) 
   spinner.start()
 
   download(`direct:${templateUrls[template]}#${template}`, processCwd, { clone: true }, async (err: Error): Promise<void> => {
-    // 是否存在错误
+    /**
+     * 是否存在错误
+     */
     if (err) {
       spinner.fail()
       info(iconError + red(err))
     } else {
       const fileName = `${processCwd}\\package.json`
-      // 是否存在 package.json 文件
+      /**
+       * 是否存在 package.json 文件
+       */
       if (existsSync(fileName)) {
-        const content = JSON.parse(readFileSync(fileName).toString()) // 读取需要修改的文件
+        /**
+         * 读取需要修改的文件
+         */
+        const content = JSON.parse(readFileSync(fileName).toString())
         content.name = projectName
-        writeFileSync(fileName, JSON.stringify(content, null, 2)) // 重新写入文件
+        /**
+         * 重新写入文件
+         */
+        writeFileSync(fileName, JSON.stringify(content, null, 2))
       }
-      spinner.succeed('模板下载成功') // 下载成功
+      /**
+       * 下载成功
+       */
+      spinner.succeed('模板下载成功')
       info()
       info(`${yellow('>>')} 正在安装依赖插件，可能要等一会...`)
       const { install, start } = toolCommands[installTool]
       const { stdout } = await exec(install, {
         cwd: processCwd
       })
-      spinner.succeed('依赖插件安装成功') // 下载成功
+      /**
+       * 下载成功
+       */
+      spinner.succeed('依赖插件安装成功')
       info(stdout)
       info()
       success(iconSuccess + ' 项目初始化完成')
