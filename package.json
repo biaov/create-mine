@@ -1,7 +1,7 @@
 {
   "name": "create-mine",
   "private": false,
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "index.js",
   "bin": {
     "create-mine": "bin/create-mine.js",
@@ -20,6 +20,9 @@
     "prettier": "prettier --write '**/*.{js,ts,md,json}'",
     "ncu": "ncu --configFileName .ncurc.json && npm i",
     "pre-publish": "start cmd /k cd ./dist"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   },
   "engines": {
     "node": ">=16"

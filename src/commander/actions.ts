@@ -4,7 +4,7 @@ import chalk from 'chalk' // 添加字体颜色
 import ora from 'ora' // 显示动画效果
 import download from 'download-git-repo' // 用于下载项目模板
 import { existsSync, readFileSync, writeFileSync } from 'fs' // 读写文件
-import { exec } from 'child_process'
+import { execSync } from 'child_process'
 import log from '@/utils/log' // 日志
 import { templateUrls, templateNames, installTools, toolCommands } from '@/config' // 全局变量
 import { SavePresetInfo, GetPresetInfo, FormatePreset } from '@/utils/functions' // 全局方法
@@ -208,18 +208,15 @@ export const DownLibrary = ({ installTool, projectName, template }: PresetInfo) 
       /**
        * 下载成功
        */
+
       spinner.succeed('模板下载成功')
       info()
-      info(`${yellow('>>')} 正在安装依赖插件，可能要等一会...`)
+      spinner.start(`>> 正在安装依赖插件，可能要等一会...`)
       const { install, start } = toolCommands[installTool]
-      const { stdout } = await exec(install, {
+      execSync(install, {
         cwd: processCwd
       })
-      /**
-       * 下载成功
-       */
       spinner.succeed('依赖插件安装成功')
-      info(stdout)
       info()
       success(iconSuccess + ' 项目初始化完成')
       info()
