@@ -36,8 +36,7 @@ npm create mine
 
 ## 项目解析
 
-- [![star](https://gitee.com/biaovorg/project-template/badge/star.svg?theme=white)](https://gitee.com/biaovorg/project-template.git)
-- [项目模板地址](https://gitee.com/biaovorg/project-template.git)：不同分支表示不同模板
+- [项目模板地址](https://github.com/biaov/project-template)：不同分支表示不同模板
 
 ### 技术栈
 
