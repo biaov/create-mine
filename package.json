@@ -1,7 +1,7 @@
 {
   "name": "create-mine",
   "private": false,
-  "version": "1.1.1",
+  "version": "1.1.2",
   "exports": "./index.js",
   "main": "./index.js",
   "type": "module",
@@ -18,7 +18,7 @@
   "scripts": {
     "start": "npm run dev",
     "dev": "node scripts/dev",
-    "build": "node scripts/build --experimental-specifier-resolution=node",
+    "build": "node scripts/build",
     "prettier": "prettier --write '**/*.{js,ts,md,json}'",
     "ncu": "ncu --configFileName .ncurc.json && npm i",
     "pre-publish": "start cmd /k cd ./dist"
@@ -56,10 +56,12 @@
     "download-git-repo": "^3.0.2",
     "inquirer": "^9.2.11",
     "log-symbols": "^5.1.0",
-    "ora": "^7.0.1"
+    "ora": "^7.0.1",
+    "update-notifier": "^6.0.2"
   },
   "devDependencies": {
-    "@types/node": "^20.6.0",
+    "@types/node": "^20.6.2",
+    "@types/update-notifier": "^6.0.5",
     "chokidar": "^3.5.3",
     "prettier": "^3.0.3",
     "typescript": "^5.2.2",

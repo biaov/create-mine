@@ -18,8 +18,7 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["./src/*"]
-    },
-    "allowImportingTsExtensions": true
+    }
   },
   "include": ["src/**/*.ts", "scripts/*.js"],
   "exclude": ["node_modules", "dist", ".git"]

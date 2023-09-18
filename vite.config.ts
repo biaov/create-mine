@@ -16,7 +16,7 @@ const config: UserConfig = {
       formats: ['es']
     },
     rollupOptions: {
-      external: ['url', 'path', 'child_process', 'fs', 'chalk', 'commander', 'download-git-repo', 'inquirer', 'log-symbols', 'ora'],
+      external: ['update-notifier', 'url', 'path', 'child_process', 'fs', 'chalk', 'commander', 'download-git-repo', 'inquirer', 'log-symbols', 'ora'],
       output: {
         entryFileNames: '[name].js'
       }
