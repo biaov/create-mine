@@ -50,10 +50,13 @@ npm create mine
 - `inquirer`: 用户交互
 - `log-symbols`: 图标
 - `ora`: 动画效果
+- `update-notifier`: 检查更新
+- `@types/node`: `node` 类型
+- `@types/update-notifier`: `update-notifier` 类型
 - `chokidar`: 监听文件更改
-- `vite`: 项目构建工具
-- `typescript`: 编程语言
 - `prettier`: 格式化工具
+- `typescript`: 编程语言
+- `vite`: 项目构建工具
 
 ## 贡献者们
 
