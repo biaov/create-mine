@@ -26,6 +26,7 @@ npm create mine
 - `uni-app`
 - `electron`
 - `node`
+- `node-simple`
 
 ### 安装工具预设
 
