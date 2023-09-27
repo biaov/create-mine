@@ -11,7 +11,8 @@ export const templateUrls = {
   react: defaultTemplateUrl,
   'uni-app': defaultTemplateUrl,
   electron: defaultTemplateUrl,
-  node: defaultTemplateUrl
+  node: defaultTemplateUrl,
+  'node-simple': defaultTemplateUrl
 }
 
 /**
