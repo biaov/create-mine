@@ -60,11 +60,11 @@
     "update-notifier": "^6.0.2"
   },
   "devDependencies": {
-    "@types/node": "^20.7.0",
+    "@types/node": "^20.8.3",
     "@types/update-notifier": "^6.0.5",
     "chokidar": "^3.5.3",
     "prettier": "^3.0.3",
     "typescript": "^5.2.2",
-    "vite": "^4.4.9"
+    "vite": "^4.4.11"
   }
 }
