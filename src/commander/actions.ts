@@ -18,8 +18,6 @@ const [firstInstallTool] = installTools
 const [firstTemplate] = templateNames
 /**
  * 创建项目命令的 action
- * @param { string } name - 命令名称
- * @returns { void }
  */
 export const Create = async (name = 'project-name') => {
   /**
@@ -152,9 +150,6 @@ export const Create = async (name = 'project-name') => {
 
 /**
  * 定义顶级命令的 action
- * @param { any } name - 第一个命令
- * @param { any } [name=undefined] - 第二个命令
- * @returns { void }
  */
 export const Arguments = (cmd: any, env: any) => {
   /**
@@ -169,9 +164,6 @@ export const Arguments = (cmd: any, env: any) => {
 
 /**
  * 下载远层模板仓库
- * @param { Array<string> } args - 预设数组
- * @param { string } name - 项目名称
- * @returns { void }
  */
 export const DownLibrary = ({ installTool, projectName, template }: PresetInfo) => {
   const processCwd = `${process.cwd()}\\${projectName}`

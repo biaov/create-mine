@@ -6,7 +6,7 @@
   <a href="https://www.npmjs.com/package/create-mine"><img src="https://img.shields.io/npm/v/create-mine.svg?logo=npm" /></a>
   <a href="https://www.npmjs.com/package/create-mine"><img src="https://img.shields.io/npm/dt/create-mine?logo=Markdown" /></a>
   <a href="https://www.npmjs.com/package/create-mine"><img src="https://packagephobia.com/badge?p=create-mine" /></a>
-  <a href="https://github.com/biaov/create-mine/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green?logo=Unlicense" /></a>
+  <a href="https://github.com/biaov/create-mine/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green?logo=Unlicense" /></a>
 </h2>
 
 ## 使用

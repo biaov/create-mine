@@ -2,7 +2,7 @@ import { writeFileSync, copyFileSync, existsSync, readdirSync, mkdirSync, readFi
 import { join } from 'path'
 import { createServer, build, createLogger } from 'vite'
 import { resetPath } from './path.js'
-// import pkg from '../package.json'
+
 const pkg = JSON.parse(readFileSync(resetPath('@/package.json')))
 const sharedConfig = { logLevel: 'info' }
 const packageJson = pkg
@@ -45,14 +45,17 @@ export const copyAssets = () => {
    * 根目录需要复制文件夹
    */
   const needDirs = ['bin']
+  
   /**
    * 根目录需要复制的文件
    */
   const filePaths = ['README.md', 'LICENSE']
+
   /**
    * 根目录
    */
   const inputDir = resetPath('@')
+
   /**
    * 输出目录
    */

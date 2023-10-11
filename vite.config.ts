@@ -1,6 +1,9 @@
 import { UserConfig } from 'vite'
 import { resolve } from 'path'
 
+/**
+ * 配置文件
+ */
 const config: UserConfig = {
   root: __dirname,
   resolve: {

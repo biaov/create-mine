@@ -3,7 +3,7 @@
 import updateNotifier from 'update-notifier'
 import chalk from 'chalk'
 import pkg from '../package.json'
-import './commander' // 命令
+import './commander'
 
 const notifier = updateNotifier({ pkg })
 
