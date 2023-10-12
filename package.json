@@ -1,7 +1,7 @@
 {
   "name": "create-mine",
   "private": false,
-  "version": "1.2.0",
+  "version": "1.3.0",
   "exports": "./index.js",
   "main": "./index.js",
   "type": "module",
@@ -17,8 +17,8 @@
   "description": "一个用于初始化项目的脚手架 👍",
   "scripts": {
     "start": "npm run dev",
-    "dev": "node scripts/dev",
-    "build": "node scripts/build",
+    "dev": "vite build --watch && node scripts/build",
+    "build": "vite build && node scripts/build",
     "prettier": "prettier --write '**/*.{js,ts,md,json}'",
     "ncu": "ncu --configFileName .ncurc.json && npm i",
     "pre-publish": "start cmd /k cd ./dist"
@@ -62,7 +62,6 @@
   "devDependencies": {
     "@types/node": "^20.8.4",
     "@types/update-notifier": "^6.0.5",
-    "chokidar": "^3.5.3",
     "prettier": "^3.0.3",
     "typescript": "^5.2.2",
     "vite": "^4.4.11"

@@ -1,30 +1,9 @@
 import { writeFileSync, copyFileSync, existsSync, readdirSync, mkdirSync, readFileSync } from 'fs'
 import { join } from 'path'
-import { createServer, build, createLogger } from 'vite'
 import { resetPath } from './path.js'
 
 const pkg = JSON.parse(readFileSync(resetPath('@/package.json')))
-const sharedConfig = { logLevel: 'info' }
 const packageJson = pkg
-
-/**
- * vite 服务
- */
-export const createViteBuild = () =>
-  build({
-    ...sharedConfig,
-    configFile: resetPath('@/vite.config.ts'),
-    mode: 'production'
-  })
-
-/**
- * vite 打包
- */
-export const createViteServer = () =>
-  createServer({
-    ...sharedConfig,
-    configFile: resetPath('@/vite.config.ts')
-  })
 
 /**
  * 重写 package.json
@@ -45,7 +24,7 @@ export const copyAssets = () => {
    * 根目录需要复制文件夹
    */
   const needDirs = ['bin']
-  
+
   /**
    * 根目录需要复制的文件
    */
@@ -78,29 +57,3 @@ export const copyAssets = () => {
   })
 }
 
-const logger = createLogger('warn', {
-  prefix: '[ 日志 ]'
-})
-
-export const log = (error, stdout) => {
-  if (!(error && error.toString().trim())) return
-  logger.warn(error.toString(), { timestamp: true })
-  stdout && logger.warn(stdout, { timestamp: true })
-}
-
-export const debounce = (fn, time = 300) => {
-  /**
-   * 定时器
-   */
-  let timer
-
-  return e => {
-    /**
-     * 清理之前的操作
-     */
-    timer !== undefined && clearTimeout(timer)
-    timer = setTimeout(() => {
-      fn(e)
-    }, time)
-  }
-}
