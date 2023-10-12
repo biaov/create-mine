@@ -27,6 +27,7 @@ npm create mine
 - `electron`
 - `node`
 - `node-simple`
+- `cli`
 
 ### 安装工具预设
 
