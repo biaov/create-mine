@@ -5,8 +5,7 @@
     "target": "esnext",
     "useDefineForClassFields": true,
     "module": "ESNext",
-    "moduleResolution": "node",
-    "strict": true,
+
     "jsx": "preserve",
     "sourceMap": true,
     "resolveJsonModule": true,
@@ -16,9 +15,17 @@
     "types": ["node"],
     "skipLibCheck": true,
     "baseUrl": "./",
+
+    /* 解析模式 */
+    "moduleResolution": "Bundler",
+
+    /* 路径别名 */
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+
+    /* lint 检查 */
+    "strict": true
   },
   "include": ["src/**/*.ts", "scripts/*.js"],
   "exclude": ["node_modules", "dist", ".git"]

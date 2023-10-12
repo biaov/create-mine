@@ -54,7 +54,6 @@ npm create mine
 - `update-notifier`: 检查更新
 - `@types/node`: `node` 类型
 - `@types/update-notifier`: `update-notifier` 类型
-- `chokidar`: 监听文件更改
 - `prettier`: 格式化工具
 - `typescript`: 编程语言
 - `vite`: 项目构建工具
