@@ -14,7 +14,7 @@
 - 初始化项目
 
 ```Basic
-npm create mine
+npm create mine@latest
 ```
 
 ## 当前支持的预设
