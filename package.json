@@ -17,9 +17,8 @@
   "description": "一个用于初始化项目的脚手架 👍",
   "scripts": {
     "start": "npm run dev",
-    "copy": "node scripts/build",
-    "dev": "npm run copy && vite build --watch",
-    "build": "npm run copy && vite build",
+    "dev": "npm run build -- --watch",
+    "build": "node scripts/build && vite build",
     "prettier": "prettier --write '**/*.{js,ts,md,json}'",
     "ncu": "ncu --configFileName .ncurc.json && npm i",
     "pre-publish": "start cmd /k cd ./dist"
