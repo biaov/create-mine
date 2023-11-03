@@ -2,6 +2,7 @@ import { writeFileSync, copyFileSync, existsSync, readdirSync, mkdirSync, readFi
 import { join } from 'path'
 import { resetPath } from './path.js'
 
+
 const pkg = JSON.parse(readFileSync(resetPath('@/package.json')))
 const packageJson = pkg
 
