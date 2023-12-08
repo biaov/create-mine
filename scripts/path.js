@@ -1,7 +1,11 @@
 import { resolve, dirname } from 'path'
 import { fileURLToPath } from 'url'
 
+/**
+ * 当前文件所在目录
+ */
 export const __dirname = dirname(fileURLToPath(import.meta.url))
+
 /**
  * 重置路径, @ 表示根目录
  */

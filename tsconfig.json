@@ -27,6 +27,6 @@
     /* lint 检查 */
     "strict": true
   },
-  "include": ["src/**/*.ts", "scripts/*.js"],
+  "include": ["src/**/*.ts"],
   "exclude": ["node_modules", "dist", ".git"]
 }
