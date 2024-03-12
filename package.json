@@ -24,7 +24,8 @@
     "pre-publish": "start cmd /k cd ./dist"
   },
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org/",
+    "provenance": true
   },
   "engines": {
     "node": ">=20"
@@ -61,10 +62,10 @@
     "update-notifier": "^7.0.0"
   },
   "devDependencies": {
-    "@types/node": "^20.11.20",
+    "@types/node": "^20.11.26",
     "@types/update-notifier": "^6.0.8",
     "prettier": "^3.2.5",
-    "typescript": "^5.3.3",
-    "vite": "^5.1.4"
+    "typescript": "^5.4.2",
+    "vite": "^5.1.6"
   }
 }
