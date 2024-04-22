@@ -26,7 +26,6 @@ npm create mine@latest
 - `uni-app`
 - `electron`
 - `node`
-- `node-simple`
 - `cli`
 
 ### 安装工具预设

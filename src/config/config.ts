@@ -9,7 +9,7 @@ const defaultTemplateUrl = 'https://gitee.com/biaovorg/project-template.git'
  * [模板下载地址]: [模板名称, ...]
  */
 const templatePresets = {
-  [defaultTemplateUrl]: ['vue', 'react', 'uni-app', 'electron', 'node', 'node-simple', 'cli']
+  [defaultTemplateUrl]: ['vue', 'react', 'uni-app', 'electron', 'node', 'cli']
 }
 
 /**
