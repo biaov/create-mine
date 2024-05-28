@@ -1,7 +1,6 @@
 import { writeFileSync, copyFileSync, existsSync, readdirSync, mkdirSync, statSync, unlinkSync } from 'fs'
 import { join } from 'path'
-import { resetPath } from './path.js'
-import packageJson from '../package.json' assert { type: 'json' }
+import pkg from '../package.json' assert { type: 'json' }
 
 /**
  * 重写 package.json
@@ -10,20 +9,20 @@ export const rewritePackage = () => {
   /**
    * 重置输出目录
    */
-  const output = resetPath('@/dist')
-  !existsSync(output) && mkdirSync(output)
+  const output = 'dist'
 
-  packageJson.devDependencies = packageJson.scripts = {}
+  pkg.devDependencies = pkg.scripts = {} as any
+
   /**
    * 写入最新的
    */
-  writeFileSync(resetPath('@/dist/package.json'), JSON.stringify(packageJson, null, 2))
+  writeFileSync(`${output}/package.json`, JSON.stringify(pkg, null, 2))
 }
 
 /**
  * 拷贝目录
  */
-const copyDirectory = (source, destination) => {
+const copyDirectory = (source: string, destination: string) => {
   const stat = statSync(source)
   if (stat.isFile()) {
     /**
@@ -56,6 +55,15 @@ export const copyAssets = () => {
    */
   const filePaths = ['bin', 'README.md', 'LICENSE']
   filePaths.forEach(path => {
-    copyDirectory(resetPath(`@/${path}`), resetPath(`@/dist/${path}`))
+    const destName = path.split('/').at(-1)
+    copyDirectory(path, `dist/${destName}`)
   })
 }
+
+export default () => ({
+  name: 'rollup-plugin-copy',
+  closeBundle() {
+    rewritePackage()
+    copyAssets()
+  }
+})
