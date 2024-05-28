@@ -1,14 +1,14 @@
 import { writeFile, readFileSync } from 'fs'
-import { resolve, dirname } from 'path'
+import { resolve } from 'path'
 import chalk from 'chalk'
-import { fileURLToPath } from 'url'
-import { PresetInfo } from './types'
+import type { PresetInfo } from './types'
 
-export const __dirname = dirname(fileURLToPath(import.meta.url))
+export const { dirname } = import.meta
+
 /**
  * 预设数据路径
  */
-const presetPath = resolve(__dirname, './presetData.json')
+const presetPath = resolve(dirname, './presetData.json')
 
 /**
  * 保存本地预设信息
