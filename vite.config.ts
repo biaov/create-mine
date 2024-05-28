@@ -1,5 +1,6 @@
 import { resolve } from 'path'
-import { external, rollupPluginCopy } from './scripts'
+import external from './scripts/external'
+import rollupPluginCopy from './scripts/rollup-plugin-copy'
 
 const { dirname } = import.meta
 
@@ -14,9 +15,9 @@ export default {
   },
   build: {
     target: 'node20',
-    outDir: resolve(dirname, './dist/dist'),
+    outDir: './dist/dist',
     lib: {
-      entry: resolve(dirname, './src/index.ts'),
+      entry: './src/index.ts',
       formats: ['es']
     },
     rollupOptions: {
