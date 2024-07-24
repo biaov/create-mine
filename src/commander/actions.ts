@@ -9,7 +9,8 @@ import log from '@/utils/log' // 日志
 import { templateUrls, templateNames, installTools, toolCommands } from '@/config' // 全局变量
 import { SavePresetInfo, GetPresetInfo, FormatePreset } from '@/utils/functions' // 全局方法
 import { version } from '@/../package.json' // 包信息
-import { PresetInfo, Template } from './types'
+import { downloadVSCodeConfig } from './vscode'
+import type { PresetInfo, Template } from './types'
 
 const { iconError, iconSuccess, success, info, error, warning } = log
 const { yellow, red, blueBright, cyanBright } = chalk
@@ -203,6 +204,7 @@ export const DownLibrary = ({ installTool, projectName, template }: PresetInfo) 
 
       spinner.succeed('模板下载成功')
       info()
+      downloadVSCodeConfig({ projectName })
       spinner.start(`>> 正在安装依赖插件，可能要等一会...`)
       const { install, start } = toolCommands[installTool]
       exec(install, { cwd: processCwd }, err => {

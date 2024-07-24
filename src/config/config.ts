@@ -1,15 +1,9 @@
 /**
- * 默认的模板地址，也可以配置其它模板地址
- * 其它模板地址: https://github.com/biaov/project-template.git
- */
-const defaultTemplateUrl = 'https://gitee.com/biaovorg/project-template.git'
-
-/**
  * 模板预设
  * [模板下载地址]: [模板名称, ...]
  */
 const templatePresets = {
-  [defaultTemplateUrl]: ['vue', 'react', 'uni-app', 'electron', 'node', 'cli']
+  [import.meta.env.VITE_TEMPLATE_GIT_URL]: ['vue', 'react', 'uni-app', 'electron', 'node', 'cli']
 }
 
 /**
