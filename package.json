@@ -1,7 +1,7 @@
 {
   "name": "create-mine",
   "private": false,
-  "version": "1.6.1",
+  "version": "1.7.0",
   "exports": "./dist/index.js",
   "main": "./dist/index.js",
   "type": "module",
@@ -56,16 +56,16 @@
     "chalk": "^5.3.0",
     "commander": "^12.1.0",
     "download-git-repo": "^3.0.2",
-    "inquirer": "^10.2.2",
+    "inquirer": "^11.0.2",
     "log-symbols": "^7.0.0",
     "ora": "^8.1.0",
     "update-notifier": "^7.3.1"
   },
   "devDependencies": {
-    "@types/node": "^22.5.4",
+    "@types/node": "^22.5.5",
     "@types/update-notifier": "^6.0.8",
     "prettier": "^3.3.3",
     "typescript": "^5.6.2",
-    "vite": "^5.4.4"
+    "vite": "^5.4.6"
   }
 }
