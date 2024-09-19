@@ -10,7 +10,6 @@ const fileOption = { recursive: true, force: true }
  */
 export const downloadVSCodeConfig = ({ projectName }: DownloadVSCodeConfig.Option) => {
   const tempFileName = `${+new Date()}`
-  const processCwd = `${process.cwd()}\\${projectName}\\${tempFileName}`
   const projectPath = join(process.cwd(), projectName)
   const tempPath = join(projectPath, tempFileName)
 
