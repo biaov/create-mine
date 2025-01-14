@@ -1,7 +1,7 @@
 import type { InputPluginOption } from 'rollup'
 import { writeFileSync, copyFileSync, existsSync, readdirSync, mkdirSync, statSync, unlinkSync } from 'fs'
 import { join } from 'path'
-import pkg from '../package.json' assert { type: 'json' }
+import pkg from '../package.json' with { type: 'json' }
 
 /**
  * 重写 package.json
