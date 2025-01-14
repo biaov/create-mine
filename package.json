@@ -28,7 +28,7 @@
     "provenance": true
   },
   "engines": {
-    "node": ">=20.12"
+    "node": ">=22.11"
   },
   "keywords": [
     "cli",
