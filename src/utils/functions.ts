@@ -3,12 +3,10 @@ import { resolve } from 'path'
 import chalk from 'chalk'
 import type { PresetInfo } from './types'
 
-export const { dirname } = import.meta
-
 /**
  * 预设数据路径
  */
-const presetPath = resolve(dirname, './presetData.json')
+const presetPath = resolve(import.meta.dirname, './presetData.json')
 
 /**
  * 保存本地预设信息

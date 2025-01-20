@@ -62,10 +62,10 @@
     "update-notifier": "^7.3.1"
   },
   "devDependencies": {
-    "@types/node": "^22.10.6",
+    "@types/node": "^22.10.7",
     "@types/update-notifier": "^6.0.8",
     "prettier": "^3.4.2",
     "typescript": "^5.7.3",
-    "vite": "^5.4.11"
+    "vite": "^6.0.7"
   }
 }
