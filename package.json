@@ -56,13 +56,13 @@
     "chalk": "^5.4.1",
     "commander": "^13.1.0",
     "download-git-repo": "^3.0.2",
-    "inquirer": "^12.4.2",
+    "inquirer": "^12.4.3",
     "log-symbols": "^7.0.0",
     "ora": "^8.2.0",
     "update-notifier": "^7.3.1"
   },
   "devDependencies": {
-    "@types/node": "^22.13.9",
+    "@types/node": "^22.13.10",
     "@types/update-notifier": "^6.0.8",
     "prettier": "^3.5.3",
     "typescript": "^5.8.2",
